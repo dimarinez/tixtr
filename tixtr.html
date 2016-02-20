@@ -1,0 +1,89 @@
+<head>
+    <title>tixtr</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <a class="btn btn-success pull-right" href="/ticketfeed/add" role="button">Add Posts</a>
+                    <h1><a href="/">tixtr</a></h1>
+                    <div class="loginBtns">
+                        {{>loginButtons}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<template name="allNewsView">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <ul class="list-group">
+                    {{#each news}}
+                        {{> newsItem}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="newsItem">
+    <li class="list-group-item">
+        <h1>{{title}}</h1>
+        <br>
+        <h3>{{payment}}</h3>
+        <h5>${{price}}</h5>
+        <h2>How Many?<br>{{qty}}</h2>
+        <a href="{{url}}">{{url}}</a>
+            <button class="delete">remove</button>
+        <a href="/ticketfeed/{{urlTitle}}" class="badge no-style">Details</a>
+    </li>
+</template>
+
+<template name="newsView">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <h1>{{title}}</h1>
+                <hr/>
+                <h2>${{price}}</h2>
+                <h2>How Many?{{qty}}</h2>
+                <h3>Payments<br>{{payment}}</h3>
+                <span><a href="{{url}}">Facebook Profile</a></span>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="addNews">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+                
+                {{#if currentUser}}
+                    <div class="form">
+                        <form class="addNewsForm">
+                            <input type="text" id="title" class="form-control" name="title" placeholder="Enter ticket title"/> <br/>
+                            <input type="text" id="url" class="form-control" name="url" placeholder="Enter Facebook URL"/> <br/>
+                            <h2>Preferred Payment</h2>
+                            <p><input type="radio" id="venmo" name="payment" value="Venmo"/>Venmo</p>
+                            <p><input type="radio" id="cash" name="payment" value="Cash"/>Cash</p>
+                            <p><input type="radio" id="paypal" name="payment" value="Paypal"/>Paypal</p>
+                            <label>price<input type="number" id="price" name="price" class="form-control"></label>
+                            <label>How Many?<input type="number" id="qty" name="qty" class="form-control"></label>
+
+                            <input type="submit" value="Post" class="btn btn-success btn-lg"/>
+
+                        </form>
+                    </div>
+                {{else}}
+                    <div>Please login to post a ticket</div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
