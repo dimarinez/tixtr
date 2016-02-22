@@ -1,0 +1,12 @@
+<template name="newsItem">
+    <li class="list-group-item">
+        <h1>{{title}}</h1>
+        <br>
+        <h3>{{payment}}</h3>
+        <h5>${{price}}</h5>
+        <h2>How Many?<br>{{qty}}</h2>
+        <a href="{{url}}">{{url}}</a>
+            <button class="delete">remove</button>
+        <a href="/ticketfeed/{{urlTitle}}" class="badge no-style">Details</a>
+    </li>
+</template>

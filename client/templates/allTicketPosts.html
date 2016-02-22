@@ -1,0 +1,13 @@
+<template name="allTicketPosts">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <ul class="list-group">
+                    {{#each news}}
+                        {{> newsItem}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
