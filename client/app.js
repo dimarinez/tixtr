@@ -8,15 +8,15 @@ if (Meteor.isClient) {
 
   Template.addTickets.events({
     'submit .addTicketsForm': function(e){
+      var title = e.target.title.value;
+      var locate = e.target.locate.value;
       var price = e.target.price.value;
+      var date = e.target.date.value;
       var qty = e.target.qty.value;
       var payment = e.target.payment.value;
-      var title = e.target.title.value;
-      var url = e.target.url.value;
-      var url = e.target.date.value;
-      var url = e.target.locate.value;
+      var fbUrl = e.target.fbUrl.value;
 
-      Meteor.call('addTickets', title, url, payment, price, qty);
+      Meteor.call('addTickets', title, locate, price, date, fbUrl, url, payment, price, qty);
       Router.go('tickets.all');
       return false;
     }
