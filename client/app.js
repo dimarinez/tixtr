@@ -1,28 +1,30 @@
 if (Meteor.isClient) {
 
   Template.allTicketPosts.helpers({
-    news: function () {
-      return News.find({},{sort: {dateAdded: -1}});
+    tickets: function () {
+      return Tickets.find({}, {sort: {dateAdded: -1}});
     },
   });
 
   Template.addTickets.events({
-    'submit .addNewsForm':function(e){
-      var price= e.target.price.value;
-      var qty= e.target.qty.value;
-      var payment= e.target.payment.value;
-      var title= e.target.title.value;
-      var url= e.target.url.value;
+    'submit .addTicketsForm': function(e){
+      var price = e.target.price.value;
+      var qty = e.target.qty.value;
+      var payment = e.target.payment.value;
+      var title = e.target.title.value;
+      var url = e.target.url.value;
+      var url = e.target.date.value;
+      var url = e.target.locate.value;
 
-      Meteor.call('addNews',title,url,payment,price,qty);
-      Router.go('news.all');
+      Meteor.call('addTickets', title, url, payment, price, qty);
+      Router.go('tickets.all');
       return false;
     }
   });
 
   Template.ticketsItem.events({
-    'click .delete' :function() {
-      News.remove(this._id);
+    'click .delete': function () {
+      Tickets.remove(this._id);
     }
   });
 

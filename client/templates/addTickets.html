@@ -1,28 +1,32 @@
 <template name="addTickets">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4 col-xs-offset-4">
-
-                {{#if currentUser}}
-                    <div class="form">
-                        <form class="addNewsForm">
-                            <input type="text" id="title" class="form-control" name="title" placeholder="Enter ticket title"/> <br/>
-                            <input type="text" id="url" class="form-control" name="url" placeholder="Enter Facebook URL"/> <br/>
-                            <h2>Preferred Payment</h2>
-                            <p><input type="radio" id="venmo" name="payment" value="Venmo"/>Venmo</p>
-                            <p><input type="radio" id="cash" name="payment" value="Cash"/>Cash</p>
-                            <p><input type="radio" id="paypal" name="payment" value="Paypal"/>Paypal</p>
-                            <label>price<input type="number" id="price" name="price" class="form-control"></label>
-                            <label>How Many?<input type="number" id="qty" name="qty" class="form-control"></label>
-
-                            <input type="submit" value="Post" class="btn btn-success btn-lg"/>
-
-                        </form>
-                    </div>
-                {{else}}
-                    <div>Please login to post a ticket</div>
-                {{/if}}
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+        {{#if currentUser}}
+          <div class="form">
+            <form class="addTicketsForm">
+              <h2>Ticket Information</h2>
+              <input type="text" id="title" class="form-control"
+                placeholder="Enter event title" name="title"/><br/>
+              <input type="text" id="url" class="form-control"
+                placeholder="Enter event date" name="date" /><br/>
+              <input type="text" id="url" class="form-control"
+                placeholder="Enter event location" name="locate" /><br/>
+              <input type="number" id="price" class="form-control" placeholder="Enter a price" name="price"><br/>
+              <input type="number" id="qty" name="qty" class="form-control" placeholder="How many are you selling?"><br/>
+              <h2>Proof that you are real</h2>
+              <input type="text" id="url" class="form-control" name="fbUrl" placeholder="Enter Facebook URL"/><br/>
+              <h2>Preferred Payment</h2>
+              <p><input type="radio" id="venmo" name="payment" value="Venmo"/>Venmo</p>
+              <p><input type="radio" id="cash" name="payment" value="Cash"/>Cash</p>
+              <p><input type="radio" id="paypal" name="payment" value="Paypal"/>Paypal</p>
+              <input type="submit" value="Take your post live!" class="btn btn-success btn-lg"/>
+            </form>
+          </div>
+        {{else}}
+          <div>Please login to post a ticket</div>
+        {{/if}}
+      </div>
     </div>
+  </div>
 </template>
